@@ -1,2 +1,6 @@
 ipython==2.2.0
 pip-tools==0.3.5
+python==2.6
+tornado==2.3
+redis==2.4
+redis-py==2.4

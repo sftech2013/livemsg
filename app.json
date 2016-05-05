@@ -1,7 +1,7 @@
 {
     "name": "LIVE",
     "description": "Gestion et broadcast de vos SMS et messages Twitter sur écrans multiples",
-    "repository": "https://github.com/sftech2013/live",
+    "repository": "https://github.com/sftech2013/livemsg",
     "logo": "http://142.4.203.231/logo/logo-binv_150.png",
     "keywords": ["python", "twitter", "SMS"],
     "success_url": "/user/welcome",

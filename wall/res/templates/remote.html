@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="remote" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+        <title>Wall Remote</title>
+        <link href="/static/remote.css" rel="stylesheet"/>
+
+        <script src="/static/lib/es6-promise-2.0.0.min.js"></script>
+        <script src="/static/lib/HTMLImports.min.js"></script>
+        <script src="/static/lib/jquery-2.1.1.min.js"></script>
+
+        <script src="/static/util.js"></script>
+        <script src="/static/wall.js"></script>
+        <script src="/static/display.js"></script>
+        <script src="/static/remote.js"></script>
+        <script src="/static/remote/posts.js"></script>
+
+        <script>
+            ES6Promise.r();
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+                ui = new wall.remote.RemoteUi();
+                ui.init().catch(function(error) {
+                    ui.notifyError(error);
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="screen-stack"></div>
+
+        <div id="notification"></div>
+
+        <div class="templates">
+            <div class="template screen-template">
+                <div class="screen">
+                    <header class="bar">
+                        <h1></h1>
+                        <button class="screen-settings">Wall</button>
+                        <button class="bar-secondary screen-go-back">
+                            <img src="static/images/go-back.svg"/>
+                        </button>
+                    </header>
+                    <div class="screen-content"></div>
+                </div>
+            </div>
+
+            <div class="template connection-screen-template">
+                <p class="connection-screen-state"></p>
+                <p class="connection-screen-detail"></p>
+            </div>
+
+            <div class="login-screen-template">
+                <p>Pick a name and we are ready to go!</p>
+                <form class="login-screen-login">
+                    <label>
+                        <input name="name"/>
+                        <small>Name</small>
+                    </label>
+                    <p class="buttons">
+                        <!-- TODO: add suitable icon -->
+                        <button>Log in</button>
+                    </p>
+                </form>
+            </div>
+
+            <div class="edit-post-screen-template">
+                <form class="edit-post-screen-edit">
+                    <label>
+                        <input name="title"/>
+                        <small>Title</small>
+                    </label>
+                    <div class="edit-post-screen-content"></div>
+                    <p class="buttons"><button>Done</button></p>
+                </form>
+            </div>
+
+            <div class="edit-text-post-screen-template">
+                <label>
+                    <textarea name="content"></textarea>
+                    <small>Content</small>
+                </label>
+            </div>
+
+            <div class="post-note-screen-template">
+                <form class="post-note-screen-post">
+                    <textarea name="content"></textarea>
+                    <p class="buttons"><button>Post</button></p>
+                </form>
+            </div>
+
+            <div class="post-template">
+                <div class="post">
+                    <div class="post-content"></div>
+                    <p class="post-meta">
+                        posted by <span class="post-poster">?</span> at
+                        <span class="post-posted">?</span>
+                    </p>
+                    <ul class="list post-actions">
+                        <li class="post-edit"><p>Edit</p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template post-menu-template">
+                <div class="post-menu">
+                    <p class="post-menu-label">
+                        Post to
+                        <button class="post-menu-target incognito" disabled="disabled">
+                            ?
+                        </button>
+                        :
+                    </p>
+                    <div class="post-menu-actions"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+/*
+ * Wall
+ *
+ * Spacing:
+ *  - font size:        4vh
+ *  - standard padding: 4vh
+ *  - small padding:    1vh
+ */
+
+@import url("client.css");
+
+/* ==== General ==== */
+
+html
+{
+    font-size: 4vh;
+}
+
+body
+{
+    height: 100vh;
+}
+
+/* ==== Post ==== */
+
+.post {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.display-post {
+    background: transparent;
+}
+
+.post-content {
+    height: 100vh;
+}
+
+.post-meta {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    max-width: calc(100% - 2 * 0.25rem);
+    padding: 0.25rem 1rem;
+    margin: 0;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* ==== TextPost ==== */
+
+.text-post-content
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 1rem;
+}
+
+.text-post-content pre
+{
+    flex: none;
+    margin: 0;
+}
+
+/* ==== ImagePost ==== */
+
+.image-post-content
+{
+    background: center / contain no-repeat;
+}
+
+/* ==== GridPostElement ==== */
+
+.grid-post-content {
+    display: flex;
+    padding: 0.125rem;
+    background: #333;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.grid-post-content > .post-space {
+    flex: none;
+    margin: 0.125rem;
+    background: #444;
+}
+
+/* ==== Page ==== */
+
+.display body {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.display body > .post-space {
+    order: 0;
+    flex: auto;
+}
+
+.info {
+    order: 1;
+    flex: none;
+    padding: 1vh 4vh;
+    background: #222;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.info:empty {
+    display: none;
+}

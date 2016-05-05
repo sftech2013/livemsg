@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="display" lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Wall Display</title>
+        <link href="/static/display.css" rel="stylesheet"/>
+
+        <script src="/static/lib/es6-promise-2.0.0.min.js"></script>
+        <script src="/static/lib/HTMLImports.min.js"></script>
+        <script src="/static/lib/jquery-2.1.1.min.js"></script>
+
+        <script src="/static/util.js"></script>
+        <script src="/static/wall.js"></script>
+        <script src="/static/display.js"></script>
+        <script src="/static/remote.js"></script>
+
+        <script>
+            ES6Promise.r();
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+                ui = new wall.display.DisplayUi();
+                ui.init().catch(function(error) {
+                    console.log(error);
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="info">{{ app.config['info'] }}</div>
+    </body>
+</html>

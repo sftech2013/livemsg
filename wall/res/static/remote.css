@@ -1,0 +1,341 @@
+/*
+ * Wall
+ *
+ * Spacing:
+ *  - small font size:  0.90rem
+ *  - standard padding: 1.00rem
+ *  - small padding:    0.25rem
+ */
+
+@import url("client.css");
+
+/* ==== General ==== */
+
+button {
+    display: inline-block;
+    padding: 0.25rem;
+    border: 1px solid #555;
+    border-radius: 0.25rem;
+    background: transparent;
+    color: inherit;
+    text-align: center;
+    text-shadow: inherit;
+}
+
+button img {
+    vertical-align: top;
+    height: 1rem;
+    margin: 0.25rem;
+}
+
+button.incognito {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+p.buttons {
+    display: flex;
+    border-top: 1px solid #555;
+    border-radius: 0.25rem;
+}
+
+p.buttons > button {
+    display: block;
+    flex: 1 1 0;
+    border-width: 0 0 0 1px;
+    border-radius: 0;
+}
+
+p.buttons > button:first-child {
+    border-left: none;
+}
+
+/* ==== Form ==== */
+
+form {
+    overflow: visible;
+}
+
+input,
+textarea,
+label {
+    display: block;
+    margin: 1.5rem 0;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid #fff;
+    border-radius: 0.25rem;
+    box-shadow: inset 1px 1px 1px 0 rgba(0, 0, 0, 0.5);
+    color: #333;
+    background: #fff;
+}
+
+textarea {
+    height: calc(15.5rem + 2px);
+}
+
+label input,
+label textarea {
+    margin: 0;
+}
+
+label small {
+    display: block;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* ==== Screen ==== */
+
+.screen
+{
+    background: #333;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.screen-content
+{
+    padding: 0 1rem;
+}
+
+.fullscreen
+{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+}
+
+.screen:not(.fullscreen):last-child
+{
+    position: relative;
+}
+
+.screen-pushed,
+.screen-popped
+{
+    transition: transform, opacity;
+    transition-duration: 0.5s;
+    opacity: 0.25;
+    transform: translate(-100%, 0);
+    -webkit-transform: translate(-100%, 0);
+}
+
+.screen-open
+{
+    transition: transform, opacity;
+    transition-duration: 0.5s;
+}
+
+/* ==== Bar ==== */
+
+header.bar {
+    display: flex;
+    background: #222;
+}
+
+header.bar > h1 {
+    flex: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+header.bar > button {
+    order: 1;
+    flex: none;
+    padding: 0.5rem;
+    border: solid #444;
+    border-width: 0 0 0 1px;
+    border-radius: 0;
+}
+
+header.bar > button.bar-secondary {
+    order: -1;
+    border-width: 0 1px 0 0;
+}
+
+/* ==== Overlay Menu ==== */
+
+ul.overlay-menu
+{
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    list-style: none;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+ul.overlay-menu li
+{
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+}
+
+/* ==== EditPostScreen ==== */
+
+.edit-post-screen-content {
+    overflow: visible;
+}
+
+/* ==== Connection Screen ==== */
+
+.connection-screen .screen-content
+{
+    text-align: center;
+}
+
+.connection-screen-detail
+{
+    font-size: 0.9rem;
+}
+
+/* ==== PostElement ==== */
+
+.post {
+    margin: 1.5rem 0;
+}
+
+.post-content {
+    overflow: visible;
+}
+
+.post-content > :first-child,
+.post-content:empty + .post-meta {
+    margin-top: 0;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.post-actions {
+    margin-bottom: 0;
+}
+
+/* ==== GridPostElement ==== */
+
+/* TODO: achieve this with .list-empty-content for List. */
+.grid-post .list:empty::before {
+    /* TODO: secondary text color */
+    content: "No post yet.";
+}
+
+/* ==== List ==== */
+
+.list > li {
+    display: flex;
+    border: solid #555;
+    border-width: 1px 0 0 0;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.list > li:last-child {
+    border-width: 1px 0;
+}
+
+.list > li > img {
+    order: -1;
+    flex: none;
+    height: 3rem;
+    margin: 0.25rem 1rem 0.25rem 0.25rem;
+}
+
+.list > li > p {
+    flex: auto;
+    max-height: 3.5rem;
+    padding: 0.25rem;
+    margin: 0;
+}
+
+.list > li > button {
+    order: 1;
+    flex: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* ==== Post Space ==== */
+
+.post-space {
+    overflow: visible;
+}
+
+/* ==== PostMenu ==== */
+
+.post-menu {
+    margin: 1.5rem 0;
+}
+
+.post-menu-label {
+    margin-top: 0;
+}
+
+.post-menu-actions {
+    display: flex;
+    padding: 0.125rem;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.post-menu-actions > button {
+    flex: none;
+    width: calc(1rem /*img*/ + 9ch /*text*/);
+    margin: 0.125rem;
+    border: none;
+    border-radius: 0;
+    background: #555;
+    text-align: left;
+}
+
+/* ==== Page ==== */
+
+html
+{
+    overflow: auto;
+}
+
+body
+{
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.75);
+    position: relative;
+    max-width: 70ch;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.screen-stack
+{
+    overflow: visible;
+}
+
+#notification
+{
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    padding: 0.3em;
+    width: 100%;
+}
